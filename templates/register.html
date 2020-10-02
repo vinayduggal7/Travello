@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+<body>
+    <form action="register" method="post">
+        {% csrf_token %}
+        First Name :  <input type="text" name="firstname" placeholder="Bill" required><br>
+
+        Last  Name :  <input type="text" name="lastname" placeholder="Gates" required><br>
+        
+        Username   :  <input type="text" name="username" placeholder="Bill12" required><br>
+        
+        Email      :  <input type="email" name="email" placeholder="Email ID" required><br>
+        
+        Password   :  <input type="password" name="password1" placeholder="Password" required><br>
+        
+        Confirm Password : <input type="password" name="password2" placeholder="Confirm Password" required><br>
+
+        <input type="submit">
+    </form>
+    <div>
+    {% for message in messages %}
+    <h3>{{message}}</h3>
+    {%endfor%}
+    </div>
+</body>
+</html>
+
+{% endblock %}
